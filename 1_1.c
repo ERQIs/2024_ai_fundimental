@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #define MAX 1000005
 #define MOD 100003
-#define QSIZE 100003
-
+#define QSIZE 1000003
 typedef struct node {
     int idx;
     struct node* next;
@@ -47,7 +46,6 @@ void read() {
     for (i = 1; i <= m; i ++) {
         scanf("%d%d", &a, &b);
         list_insert(a, b);
-        list_insert(b, a);
     }
 }
 
@@ -84,7 +82,7 @@ int main()
         pre_layer = next_layer; 
         next_layer = 0;
     }
-
-    printf("%d\n", reach[n]);
+    if(reach[n] == MAX) printf("-1\n");
+    else printf("%d\n", reach[n]);
     return 0;
 }
